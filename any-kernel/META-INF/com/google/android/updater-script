@@ -32,7 +32,7 @@ ui_print("");
 ui_print("");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("Frankenstien");
-ui_print("Version: SIO_0912");
+ui_print("Version: sbc_froyo");
 ui_print("Type: Universal");
 ui_print("Developed by: Detcup4evr     Device: HTC Evo 4g");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
