@@ -107,7 +107,7 @@ ui_print("");
 ui_print("");
 ui_print("");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-ui_print("Frankenstien");
+ui_print("Lionfish");
 ui_print("Version: _VER_");
 ui_print("Type: Universal");
 ui_print("Developed by: Detcup4evr     Device: HTC Evo 4g");
@@ -189,7 +189,7 @@ ui_print("");
 ui_print("");
 ui_print("");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-ui_print("Frankenstien");
+ui_print("Lionfish");
 ui_print("Version: _VER_");
 ui_print("Type: Synergy Nightly");
 ui_print("Developed by: Lithid         Device: HTC Evo 4g");
@@ -445,9 +445,9 @@ touch $MY_HOME/any-kernel/system/lib/modules/PLACEHOLDER
 
 function build_the_blessed_kernel(){
 if [ "$TITLE" = "Less" ] || [ "$TITLE" = "More" ] || [ "$TITLE" = "Aggressive" ]; then
-	sed "s/CONFIG_LOCALVERSION=".*"/CONFIG_LOCALVERSION="\"-$TITLE-Frankenstien-$NUM\""/g" .config > tmp
+	sed "s/CONFIG_LOCALVERSION=".*"/CONFIG_LOCALVERSION="\"-$TITLE-Lionfish-$NUM\""/g" .config > tmp
 else
-	sed "s/CONFIG_LOCALVERSION=".*"/CONFIG_LOCALVERSION="\"-Frankenstien-$NUM\""/g" .config > tmp
+	sed "s/CONFIG_LOCALVERSION=".*"/CONFIG_LOCALVERSION="\"-Lionfish-$NUM\""/g" .config > tmp
 fi
 
 mv tmp .config
@@ -460,10 +460,10 @@ TYPE="UNIVERSAL"
 universal_modules_kernel_migration
 if [ "$TITLE" = "Less" ] || [ "$TITLE" = "More" ] || [ "$TITLE" = "Aggressive" ]; then
 	THIS_ZIP="$TITLE-Frankenstien-$NUM-$TYPE.zip"
-	THIS_ZIP_SIGNED="$TITLE-Frankenstien-$NUM-$TYPE-signed.zip"
+	THIS_ZIP_SIGNED="$TITLE-Lionfish-$NUM-$TYPE-signed.zip"
 else
 	THIS_ZIP="Freedom-$NUM-$TYPE.zip"
-	THIS_ZIP_SIGNED="Freedom-$NUM-$TYPE-signed.zip"
+	THIS_ZIP_SIGNED="Lionfish-$NUM-$TYPE-signed.zip"
 fi
 just_sign_the_fucking_zip
 
@@ -596,7 +596,7 @@ else
         exit 0
 fi
 
-THIS_ZIP_SIGNED="*Frankenstien-*signed.zip"
+THIS_ZIP_SIGNED="*Lionfish-*signed.zip"
 FINAL_LOG=$(find $HOME -iname FREEDOM-*.log |grep -v .local)
 FINAL_INSTALL_ZIP=$(find $HOME -iname $THIS_ZIP_SIGNED |grep -v .local)
 echo ""
