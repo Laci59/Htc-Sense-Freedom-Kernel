@@ -192,11 +192,12 @@ ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("Lionfish");
 ui_print("Version: _VER_");
 ui_print("Type: Synergy Nightly");
-ui_print("Developed by: Lithid         Device: HTC Evo 4g");
+ui_print("Developed by: detcup4evr     Device: HTC Evo 4g");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("     Using: AnyKernel Updater by Koush.");
+ui_print("  Freedom Base and Install Script From Lithid");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("");
 ui_print("");
@@ -231,7 +232,7 @@ run_program("/tmp/mkbootimg.sh");
 format("MTD", "boot");
 write_raw_image("/tmp/newboot.img", "boot");ui_print("");
 format ("MTD", "cache");
-ui_print("Your now running Lithid's Sense Kernel for Synergy nightly!");
+ui_print("Your now running Detcup4evr's Sense Kernel for Synergy nightly!");
 EOF
 }
 
@@ -271,14 +272,15 @@ ui_print("");
 ui_print("");
 ui_print("");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-ui_print("FREEDOM");
+ui_print("Lionfish");
 ui_print("Version: _VER_");
 ui_print("Type: GodMode");
-ui_print("Developed by: Lithid         Device: HTC Evo 4g");
+ui_print("Developed by: Detcup4evr     Device: HTC Evo 4g");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("     Using: AnyKernel Updater by Koush.");
+ui_print("  Freedom Base and Install Script From Lithid");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("");
 ui_print("");
@@ -314,7 +316,7 @@ show_progress(0.500000, 60);
 run_program("/tmp/mkbootimg.sh");
 show_progress(0.500000, 80);
 write_raw_image("/tmp/newboot.img", "boot");
-ui_print("Freedom Kernel for Synergy Godmode Complete!");
+ui_print("Lionfish Kernel for Synergy Godmode Complete!");
 show_progress(0.500000, 100);
 EOF
 }
@@ -459,10 +461,10 @@ make -j$(grep -ic ^processor /proc/cpuinfo) ARCH=arm CROSS_COMPILE=$COMPILER &>>
 TYPE="UNIVERSAL"
 universal_modules_kernel_migration
 if [ "$TITLE" = "Less" ] || [ "$TITLE" = "More" ] || [ "$TITLE" = "Aggressive" ]; then
-	THIS_ZIP="$TITLE-Frankenstien-$NUM-$TYPE.zip"
+	THIS_ZIP="$TITLE-Lionfish-$NUM-$TYPE.zip"
 	THIS_ZIP_SIGNED="$TITLE-Lionfish-$NUM-$TYPE-signed.zip"
 else
-	THIS_ZIP="Freedom-$NUM-$TYPE.zip"
+	THIS_ZIP="Lionfish-$NUM-$TYPE.zip"
 	THIS_ZIP_SIGNED="Lionfish-$NUM-$TYPE-signed.zip"
 fi
 just_sign_the_fucking_zip
@@ -478,16 +480,16 @@ just_sign_the_fucking_zip
 ###fi
 ###just_sign_the_fucking_zip
 
-###TYPE="SYNERGY_GODMODE"
-###universal_modules_kernel_migration
-###if [ "$TITLE" = "Less" ] || [ "$TITLE" = "More" ] || [ "$TITLE" = "Aggressive" ]; then
-###	THIS_ZIP="$TITLE-Freedom-$NUM-$TYPE.zip"
-###	THIS_ZIP_SIGNED="$TITLE-Freedom-$NUM-$TYPE-signed.zip"
-###else
-###	THIS_ZIP="Freedom-$NUM-$TYPE.zip"
-###	THIS_ZIP_SIGNED="Freedom-$NUM-$TYPE-signed.zip"
-###fi
-###just_sign_the_fucking_zip
+TYPE="SYNERGY_GODMODE"
+universal_modules_kernel_migration
+if [ "$TITLE" = "Less" ] || [ "$TITLE" = "More" ] || [ "$TITLE" = "Aggressive" ]; then
+	THIS_ZIP="$TITLE-lionfish-$NUM-$TYPE.zip"
+	THIS_ZIP_SIGNED="$TITLE-lionfish-$NUM-$TYPE-signed.zip"
+else
+	THIS_ZIP="lionfish-$NUM-$TYPE.zip"
+	THIS_ZIP_SIGNED="lionfish-$NUM-$TYPE-signed.zip"
+fi
+just_sign_the_fucking_zip
 }
 
 function progress(){
