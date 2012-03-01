@@ -191,7 +191,7 @@ ui_print("");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("Lionfish");
 ui_print("Version: _VER_");
-ui_print("Type: Synergy Nightly");
+ui_print("Type: Warm 2.3/Sense 3.5");
 ui_print("Developed by: detcup4evr     Device: HTC Evo 4g");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("");
@@ -212,12 +212,9 @@ ui_print("");
 set_progress(1.000000); 
 mount("MTD", "userdata", "/data");
 package_extract_dir("data", "/data");
-set_perm_recursive(0, 0, 0755, 0644, "/data/Synergy-System/system.lib/modules");
 unmount("/data");
 mount("MTD", "system", "/system");
 package_extract_dir("system", "/system");
-set_perm_recursive(0, 0, 0755, 0644, "/system/lib/modules");
-set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
 unmount("/system");
 ui_print("Extracting Kernel files...");
 package_extract_dir("kernel", "/tmp");
@@ -226,12 +223,11 @@ set_perm(0, 0, 0777, "/tmp/dump_image");
 set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
 set_perm(0, 0, 0777, "/tmp/mkbootimg");
 set_perm(0, 0, 0777, "/tmp/unpackbootimg");
+show_progress(0.500000, 30);
 run_program("/tmp/dump_image", "boot", "/tmp/boot.img");
 run_program("/tmp/unpackbootimg", "/tmp/boot.img", "/tmp/");
 run_program("/tmp/mkbootimg.sh");
-format("MTD", "boot");
 write_raw_image("/tmp/newboot.img", "boot");ui_print("");
-format ("MTD", "cache");
 ui_print("Your now running Detcup4evr's Sense Kernel for Synergy nightly!");
 EOF
 }
@@ -469,16 +465,16 @@ else
 fi
 just_sign_the_fucking_zip
 
-###TYPE="SYN_NIGHTLY"
-###syn_nightly_modules_kernel_migration
-###if [ "$TITLE" = "Less" ] || [ "$TITLE" = "More" ] || [ "$TITLE" = "Aggressive" ]; then
-###	THIS_ZIP="$TITLE-Freedom-$NUM-$TYPE.zip"
-###	THIS_ZIP_SIGNED="$TITLE-Freedom-$NUM-$TYPE-signed.zip"
-###else
-###	THIS_ZIP="Freedom-$NUM-$TYPE.zip"
-###	THIS_ZIP_SIGNED="Freedom-$NUM-$TYPE-signed.zip"
-###fi
-###just_sign_the_fucking_zip
+TYPE="SYN_NIGHTLY"
+syn_nightly_modules_kernel_migration
+if [ "$TITLE" = "Less" ] || [ "$TITLE" = "More" ] || [ "$TITLE" = "Aggressive" ]; then
+	THIS_ZIP="$TITLE-Lionfish-$NUM-sense3.5.zip"
+	THIS_ZIP_SIGNED="$TITLE-Lionfish-$NUM-sense3.5-signed.zip"
+else
+	THIS_ZIP="Lionfish-$NUM-sense3.5.zip"
+	THIS_ZIP_SIGNED="Lionfish-$NUM-sense3.5-signed.zip"
+fi
+just_sign_the_fucking_zip
 
 TYPE="SYNERGY_GODMODE"
 universal_modules_kernel_migration
