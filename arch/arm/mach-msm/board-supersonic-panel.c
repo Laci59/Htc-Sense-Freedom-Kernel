@@ -435,15 +435,20 @@ static void suc_set_brightness(struct led_classdev *led_cdev,
 
 	if (val < 30)
 		shrink_br = 5;
-	else if ((val >= 30) && (val <= 143))
-		shrink_br = 104 * (val - 30) / 113 + 5;
-	else
-		shrink_br = 145 * (val - 144) / 111 + 110;
+	else if ((val >= 30) && (val <= 143)){
+		shrink_br = 52 * (val - 30) / 113 + 5 / 4;
+		val = val / 2;
+	}
+	else {
+		shrink_br = 73 * (val - 72) / 111 + 25 / 4;
+		val = val / 2;
+	}
 	mutex_lock(&cabc.lock);
 	if (panel_type == PANEL_SHARP) {
 		int i, reg, sleep_time;
 
 		printk(KERN_DEBUG "PANEL_SHARP: set brightness = %d\n", val);
+		printk(KERN_DEBUG "PANEL_SHARP: rpm adj = %d\n", shrink_br);
 
 		for (i = 0; i < ARRAY_SIZE(pwm_seq); i++) {
 			reg = pwm_seq[i].reg;
@@ -474,7 +479,7 @@ suc_get_brightness(struct led_classdev *led_cdev)
 		return client->remote_read(client, 0x5100);
 }
 
-#define DEFAULT_BRIGHTNESS 100
+#define DEFAULT_BRIGHTNESS 50
 static void suc_backlight_switch(int on)
 {
 	enum led_brightness val;
