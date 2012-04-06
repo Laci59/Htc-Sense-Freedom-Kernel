@@ -19,9 +19,6 @@ SUBSYS(debug)
 
 /* */
 
-#ifdef CONFIG_CGROUP_NS
-SUBSYS(ns)
-#endif
 
 /* */
 
@@ -66,3 +63,6 @@ SUBSYS(blkio)
 #endif
 
 /* */
+#ifdef CONFIG_CGROUP_BFQIO
+SUBSYS(bfqio)
+#endif
