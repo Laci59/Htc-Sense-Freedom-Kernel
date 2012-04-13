@@ -77,7 +77,7 @@ int vm_highmem_is_dirtyable;
 /*
  * The generator of dirty data starts writeback at this percentage
  */
-int vm_dirty_ratio = 5;
+int vm_dirty_ratio = 20;
 
 /*
  * vm_dirty_bytes starts at 0 (disabled) so that it is a function of
@@ -93,7 +93,7 @@ unsigned int dirty_writeback_interval = 5 * 100; /* centiseconds */
 /*
  * The longest time for which data is allowed to remain dirty
  */
-unsigned int dirty_expire_interval = 10 * 100; /* centiseconds */
+unsigned int dirty_expire_interval = 30 * 100; /* centiseconds */
 
 /*
  * Flag that makes the machine dump writes/reads and block dirtyings.
@@ -1073,7 +1073,7 @@ EXPORT_SYMBOL(write_one_page);
 int __set_page_dirty_no_writeback(struct page *page)
 {
 	if (!PageDirty(page))
-		SetPageDirty(page);
+		return !TestSetPageDirty(page);
 	return 0;
 }
 
