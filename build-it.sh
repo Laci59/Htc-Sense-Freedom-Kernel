@@ -1,6 +1,7 @@
 #!/bin/bash
 # Build the kernel without thinking.
 # Detcup4evr - I Commented out the creation of nightly and god mode kernels (###)
+# detcup4evr - Added SBC Option
 
 MY_HOME=$(pwd)
 AUTO_SIGN="$MY_HOME/prebuilt/auto-sign"
@@ -27,6 +28,21 @@ else
 	exit 98
 fi
 }
+
+
+function battery_mode(){ 
+if [ $enable_sbc = "y" ]; then
+	echo "Enabling SBC"
+	cp $MY_HOME/arch/arm/mach-msm/SBC_htc_battery.c $MY_HOME/arch/arm/mach-msm/htc_battery.c
+	echo "Updating Version Number $NUM"
+	NUM=$NUM-SBC
+	echo "New Version Number $NUM"
+else
+	echo "SBC Will Not BE enabled"
+	cp $MY_HOME/arch/arm/mach-msm/NBC_htc_battery.c $MY_HOME/arch/arm/mach-msm/htc_battery.c
+fi
+}
+
 
 function check_finished_paths(){
 if [ -f $CHECK_PATH ]; then
@@ -516,6 +532,10 @@ fi
 
 echo -n "What is this version number? > "
 read NUM
+
+echo -n "Do you want to Enable SBC? (y/n) > "
+read enable_sbc
+battery_mode
 }
 
 function the_basics_2(){
