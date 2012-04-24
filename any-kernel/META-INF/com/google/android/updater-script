@@ -32,7 +32,7 @@ ui_print("");
 ui_print("");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 ui_print("Lionfish");
-ui_print("Version: 1.72-SBC");
+ui_print("Version: 1.742-SBC");
 ui_print("Type: Universal");
 ui_print("Developed by: Detcup4evr     Device: HTC Evo 4g");
 ui_print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
